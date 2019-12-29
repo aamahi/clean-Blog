@@ -9,18 +9,29 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                
-                <form name="sentMessage" id="contactForm" novalidate>
+                @if($errors->any())
+                    @foreach($errors->all() as $error)
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{$error}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @endforeach
+                @endif
+
+                <form action="{{Route('addCategories')}}" method="post" name="sentMessage" id="contactForm" novalidate>
+                    @csrf
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
                             <label>Categories Name</label>
-                            <input type="text" class="form-control" placeholder="Categories Name" id="name" name="name">
+                            <input type="text" class="form-control" placeholder="Categories Name" value="{{old('name')}}"  id="name" name="name">
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
                             <label for="slug">Slug Name</label>
-                            <input type="text" class="form-control" placeholder="Slug Name" id="slug" name="slug">
+                            <input type="text" class="form-control" placeholder="Slug Name" value="{{old('slug')}}" id="slug" name="slug">
                         </div>
                     </div>
                     <br>
