@@ -15,6 +15,9 @@
                     <a class="nav-link" href="about.html">About</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{Route('addCategories')}}">Add Categories</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="post.html">Sample Post</a>
                 </li>
                 <li class="nav-item">

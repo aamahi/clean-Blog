@@ -9,4 +9,7 @@ class cleanBlog extends Controller
    public function home(){
         return view('layout.home');
    }
+   public function addCategories(){
+       return view('layout.addCategories');
+   }
 }
