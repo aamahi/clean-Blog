@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+//use Illuminate\Support\Facades\DB;
 //use DB;
 class cleanBlog extends Controller
 {
@@ -12,6 +12,14 @@ class cleanBlog extends Controller
    }
    public function addCategories(){
        return view('layout.addCategories');
+   }
+   public function addCategoriesP(Request $request){
+       $rules = [
+           'name' => 'required',
+           'slug' => 'required'
+       ];
+       $this->validate($request,$rules);
+       return $request->all();
    }
 //   public function addCategoriesProcess(Request $request){
 //       $rules = [
