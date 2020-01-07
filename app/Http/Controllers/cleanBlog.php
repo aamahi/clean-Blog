@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\DB;
-//use DB;
+use App\category;
 class cleanBlog extends Controller
 {
    public function home(){
@@ -19,7 +18,11 @@ class cleanBlog extends Controller
            'slug' => 'required'
        ];
        $this->validate($request,$rules);
-       return $request->all();
+       $data = array();
+       $data= $request->except('_token');
+
+       category::create($data);
+       return redirect()->route('home');
    }
 
 }

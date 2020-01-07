@@ -27,7 +27,7 @@
 <body>
 
 <!--Header Section Start-->
-@include('index.header');
+@include('index.header')
 <!--Header Section End-->
 
 <!-- Main Content -->
