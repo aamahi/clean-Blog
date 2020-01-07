@@ -22,7 +22,12 @@ class cleanBlog extends Controller
        $data= $request->except('_token');
 
        category::create($data);
-       return redirect()->route('home');
+       session()->flash('success','Category Add Successfully !');
+       return redirect()->route('allCategory');
+   }
+   public function allCategory(){
+       $data = category::all();
+       return view('layout.allcategory',compact('data'));
    }
 
 }

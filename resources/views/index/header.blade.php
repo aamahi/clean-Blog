@@ -12,7 +12,7 @@
                     <a class="nav-link" href="{{Route('home')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="{{Route('allCategory')}}">All Categories</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{Route('addCategories')}}">Add Categories</a>
