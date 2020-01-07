@@ -21,26 +21,5 @@ class cleanBlog extends Controller
        $this->validate($request,$rules);
        return $request->all();
    }
-//   public function addCategoriesProcess(Request $request){
-//       $rules = [
-//           'name'=>'required',
-//           'slug'=>'required'
-//       ];
-//       $this->validate($request, $rules);
-//       $data = array();
-//       $data = $request->except('_token');
-////       echo "<pre>";
-//        print_r($data);
-//        echo "</pre>";
-//       $addCategories = DB::table('categories')->insert($data);
-//       if ($addCategories){
-//           return redirect()->route('home');
-//       }
-//       echo $addCategories;
-//   }
-//   public function allCategories(){
-//    $allCategories = DB::table('categories')->get();
-//    return response()->json($allCategories);
-////       return "categories";
-//   }
+
 }
