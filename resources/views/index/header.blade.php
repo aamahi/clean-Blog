@@ -18,7 +18,7 @@
                     <a class="nav-link" href="{{Route('addCategories')}}">Add Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Write Post Post</a>
+                    <a class="nav-link" href="{{Route('write_post')}}">Write Post</a>
                 </li>
             </ul>
         </div>

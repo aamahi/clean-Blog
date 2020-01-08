@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\category;
+use App\Post;
 class cleanBlog extends Controller
 {
    public function home(){
@@ -50,6 +51,26 @@ class cleanBlog extends Controller
    public function delete($id){
        category::where('id',$id)->delete();
        session()->flash('danger','Category Deleted Sucessfully !');
+       return redirect()->route('allCategory');
+   }
+
+   public function write_post(){
+       $data = category::all();
+       return view('layout.write_post',compact('data'));
+   }
+   public function write_post_p(Request $request){
+       $rules = [
+           'title' => 'required',
+           'author' => 'required',
+           'category_id' => 'required',
+           'content' => 'required'
+       ];
+       $this->validate($request,$rules);
+       $data = array();
+       $data= $request->except('_token');
+//       print_r($data);
+         Post::create($data);
+       session()->flash('success','Post Add Successfully !');
        return redirect()->route('allCategory');
    }
 }
