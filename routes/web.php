@@ -12,6 +12,7 @@
 */
 
 Route::get('','cleanBlog@home')->name('home');
+//Route::get('{id}','cleanBlog@post');
 
 Route::get('/addCategories','cleanBlog@addCategories')->name('addCategories');
 Route::Post('/addCategories','cleanBlog@addCategoriesP');

@@ -8,8 +8,14 @@ use App\Post;
 class cleanBlog extends Controller
 {
    public function home(){
-        return view('layout.home');
+       $data = Post::all();
+        return view('layout.home',compact('data'));
    }
+//   public function post($id){
+//      $post = Post::find($id);
+//      return view('layout.post_details',compact('post'));
+//   }
+
    public function addCategories(){
        return view('layout.addCategories');
    }
