@@ -29,5 +29,27 @@ class cleanBlog extends Controller
        $data = category::all();
        return view('layout.allcategory',compact('data'));
    }
+   public function edit($id){
+       $data = category::find($id);
+       return view('layout.edit',compact('data'));
+   }
+   public function updateCategory(Request $request, $id){
+       $rules = [
+           'name' => 'required',
+           'slug' => 'required'
+       ];
+       $this->validate($request,$rules);
+       $data = array();
+       $data= $request->except('_token');
+       $record = category::find($id);
+       $record->update($data);
 
+       session()->flash('success','Category Updated Successful!');
+       return redirect()->route('allCategory');
+   }
+   public function delete($id){
+       category::where('id',$id)->delete();
+       session()->flash('danger','Category Deleted Sucessfully !');
+       return redirect()->route('allCategory');
+   }
 }

@@ -16,6 +16,14 @@
                         </button>
                     </div>
                 @endif
+                    @if(session()->has('danger'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{session('danger')}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                     <table class="table table-bordered table-hover">
                         <thead class="thead-dark">
                         <tr>
@@ -32,8 +40,8 @@
                             <td>{{$row->name}}</td>
                             <td>{{$row->slug}}</td>
                             <th>
-                                <a href="{{}}" class="btn btn-success"><i class="fa fa-edit"></i></a>
-                                <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                <a href="{{Route('edit',$row->id)}}" class="btn btn-success"><i class="fa fa-edit"></i></a>
+                                <a href="{{Route('delete',$row->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             </th>
                         </tr>
                         @endforeach

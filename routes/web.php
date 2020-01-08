@@ -17,3 +17,8 @@ Route::get('/addCategories','cleanBlog@addCategories')->name('addCategories');
 Route::Post('/addCategories','cleanBlog@addCategoriesP');
 
 Route::get('/allCategory','cleanBlog@allCategory')->name('allCategory');
+
+Route::get('/edit/{id}','cleanBlog@edit')->name('edit');
+Route::post('/edit/{id}','cleanBlog@updateCategory');
+
+Route::get('/delete/{id}','cleanBlog@delete')->name('delete');
